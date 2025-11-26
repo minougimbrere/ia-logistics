@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
     background-color: #111;
     color: #fff;
@@ -12,7 +12,7 @@ header {
     width: 100%;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: 2;
 }
 
 nav ul {
@@ -27,6 +27,7 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
 main {
@@ -40,11 +41,38 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #333;
+    position: relative;
 }
 
 #home {
-    /* Add a background image of Schiphol airport here */
-    background-color: #333;
+    color: #fff;
+}
+
+.background-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 .animation-container {
@@ -52,6 +80,7 @@ section {
     height: 50vh;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .truck {
@@ -68,4 +97,10 @@ section {
     to {
         left: 100%;
     }
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: #000;
 }
